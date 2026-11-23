@@ -1,0 +1,18 @@
+[study]
+study_name            = "smoke-hpo"
+num_trials            = 2
+metric                = "val_auprc"
+mode                  = "max"
+grace_period          = 1
+cpus_per_trial        = 1
+gpus_per_trial        = 1
+max_concurrent_trials = 1
+
+[space.training.lr]
+type = "loguniform"
+low  = 1e-4
+high = 1e-2
+
+[space.model.hidden_dim]
+type   = "choice"
+values = [32, 64]

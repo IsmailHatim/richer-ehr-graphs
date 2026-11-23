@@ -1,0 +1,4 @@
+# base - visit hierarchy only (the base graph the dataset already emits).
+[graph]
+name = "base"
+components = []

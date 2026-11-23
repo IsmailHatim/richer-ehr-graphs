@@ -1,0 +1,11 @@
+# prior - coupling edges from a population lab-code prior (the learned arm).
+[graph]
+name = "prior"
+components = ["trajectory", "coupling_prior"]
+
+[graph.params.coupling_prior]
+bin_h = 6.0
+min_bins = 3
+min_support = 30
+max_patients = 20000
+seed = 0

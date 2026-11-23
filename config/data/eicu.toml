@@ -1,0 +1,4 @@
+[data]
+processed_path = "data/processed/eicu"
+name = "eicu"          # MLflow `dataset` tag (defaults to the processed_path dir name)
+task = "mortality"     # prediction target: "mortality" or "readmission"

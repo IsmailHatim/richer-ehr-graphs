@@ -1,0 +1,40 @@
+[model]
+backbone = "hgt"      # typed attention (HGTConv) over the native heterogeneous schema
+hidden_dim = 64       # must stay divisible by HGT's heads=4
+num_layers = 2        # NEVER 1: see the search TOMLs
+dropout = 0.2
+
+[training]
+min_events = 5        # drop patients with very sparse records
+max_visits = 0        # 0 keep all visits per patient
+subsample = 0
+
+# Optimization
+lr = 0.001
+weight_decay = 3e-5
+epochs = 100
+batch_size = 64
+grad_clip = 1.0       # max grad norm; 0 disables
+
+# Early stopping
+patience = 15
+min_delta = 0.001
+cumulative_delta = true       # fixes the best_val + min_delta
+
+# LR schedule (ReduceLROnPlateau on val_auprc)
+lr_factor = 0.5
+lr_patience = 5       # < patience
+
+# Split / reproducibility
+val_frac = 0.15
+test_frac = 0.15
+seed = 0
+
+# Runtime
+device = "auto"       # "auto" picks mps then cuda then cpu
+output_path = "data/models/mortality"
+num_workers = 32       # one worker per physical core
+
+[tracking]
+tracking_uri = "sqlite:///mlflow.db"
+experiment_name = "foundationmed-mortality"

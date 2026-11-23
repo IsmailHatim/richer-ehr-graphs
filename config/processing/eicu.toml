@@ -1,0 +1,3 @@
+[eicu]
+path = "/path/to/raw_data/eicu-collaborative-research-database-2.0/"
+processed_path = "data/processed/eicu"

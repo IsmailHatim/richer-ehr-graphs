@@ -1,0 +1,87 @@
+[project]
+name = "FoundationMed"
+version = "0.1.0"
+description = "Medical foundation model: sparse, heterogeneous EHR data as patient-level longitudinal graphs."
+readme = "README.md"
+requires-python = ">= 3.11"
+authors = [{name = "Anonymous Author", email = "anonymous@example.com"}]
+dependencies = ["torch-geometric>=2.7.0,<3"]
+
+[project.scripts]
+fmed = "foundationmed.cli:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/foundationmed"]
+
+[tool.pixi.workspace]
+channels = ["conda-forge", "pytorch"]   # pytorch channel is for `ignite` only
+platforms = ["osx-arm64", "linux-64"]
+
+[tool.pixi.pypi-dependencies]
+foundationmed = { path = ".", editable = true }
+mlflow = ">=2.12"
+ibis-framework = { version = ">=9.0", extras = ["sqlite"] }
+ray = { version = ">=2.54,<3", extras = ["tune"] }
+
+[tool.pixi.dependencies]
+python = "3.11.*"
+numpy = ">=2.3.5,<3"
+tqdm = ">=4.67.1,<5"
+pytorch = "*"
+ignite = ">=0.5.5,<0.6"
+torchvision = "*"
+polars = ">=1.33.1,<2"
+ipython = "*"
+typer = ">=0.24.0,<0.25"
+jupyterlab = "*"
+matplotlib = ">=3.10.8,<4"
+scikit-learn = ">=1.5,<2"
+networkx = ">=3.6.1,<4"
+pyvis = ">=0.3.2,<0.4"
+marimo = ">=0.18.1,<0.19"
+pandas = ">=2.2,<3"
+openpyxl = ">=3.1.5,<4"
+structlog = ">=24.1"
+seaborn = ">=0.13"
+optuna = ">=4.8,<5"
+git = "*"
+
+[tool.pixi.feature.dev.dependencies]
+ruff = "==0.15.16"   # pin exact: ruff's formatter can change output between versions
+ty = "*"
+pytest = "*"
+pytest-mock = "*"
+
+[tool.pixi.feature.cuda]
+platforms = ["linux-64"]
+
+[tool.pixi.feature.cuda.system-requirements]
+cuda = "11.8"
+libc = "2.28"
+
+[tool.pixi.feature.cuda.dependencies]
+pytorch-gpu = "*"
+
+[tool.pixi.environments]
+dev = ["dev"]
+cuda = ["dev", "cuda"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "UP", "D"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.isort]
+known-first-party = ["foundationmed"]
+
+[tool.ty.rules]
+

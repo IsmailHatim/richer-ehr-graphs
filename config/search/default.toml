@@ -1,0 +1,34 @@
+[study]
+study_name       = "mortality-hpo"
+num_trials       = 60
+metric           = "val_auprc"     # matches best-model selection in _train.py
+mode             = "max"
+sampler_seed     = 0
+grace_period     = 15              # min epochs before ASHA may prune
+reduction_factor = 3               # keep top 1/3 at each rung
+cpus_per_trial   = 8               # num_workers = 7
+gpus_per_trial   = 0.5             # fractional: 2 trials per CUDA GPU
+
+[space.training.lr]
+type = "loguniform"
+low  = 1e-4
+high = 1e-2
+
+[space.training.weight_decay]
+type = "loguniform"
+low  = 1e-6
+high = 1e-3
+
+[space.model.hidden_dim]
+type   = "choice"
+values = [32, 64, 128, 256]
+
+[space.model.num_layers]
+type = "int"
+low  = 1
+high = 4
+
+[space.model.dropout]
+type = "uniform"
+low  = 0.0
+high = 0.6

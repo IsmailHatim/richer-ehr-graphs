@@ -1,0 +1,39 @@
+[model]
+backbone = "gat"
+hidden_dim = 16
+num_layers = 2
+dropout = 0.5
+
+[training]
+min_events = 5
+max_visits = 0
+subsample = 500
+
+# Optimization
+lr = 0.001
+weight_decay = 0.0005
+epochs = 3
+batch_size = 64
+grad_clip = 1.0
+
+# Early stopping
+patience = 3
+min_delta = 0.001
+cumulative_delta = true
+
+# LR schedule
+lr_factor = 0.5
+lr_patience = 1       # must be < patience
+
+# Split / reproducibility
+val_frac = 0.15
+test_frac = 0.15
+seed = 0
+
+# Runtime
+device = "auto"
+output_path = "data/models/smoke"
+
+[tracking]
+tracking_uri = "sqlite:///mlflow.db"
+experiment_name = "foundationmed-smoke"

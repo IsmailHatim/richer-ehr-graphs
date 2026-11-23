@@ -1,0 +1,4 @@
+# evolution - value-aware univariate trajectory edges (the prior-work representation).
+[graph]
+name = "evolution"
+components = ["trajectory"]

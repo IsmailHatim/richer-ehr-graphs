@@ -1,0 +1,3 @@
+[mimic4]
+path = "/path/to/raw_data/physionet.org/files/MIMIC-IV/2.0/hosp/"
+processed_path = "data/processed/mimic4"
