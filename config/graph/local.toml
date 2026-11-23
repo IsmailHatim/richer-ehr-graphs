@@ -1,4 +1,4 @@
-# local - adds cross-variable coupling edges (the contribution). local superset of evolution.
+# local - adds cross-variable coupling edges; a superset of evolution.
 [graph]
 name = "local"
 components = ["trajectory", "coupling"]

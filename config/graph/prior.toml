@@ -1,4 +1,4 @@
-# prior - coupling edges from a population lab-code prior (the learned arm).
+# prior - coupling edges from a population lab-code prior.
 [graph]
 name = "prior"
 components = ["trajectory", "coupling_prior"]

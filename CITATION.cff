@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the poster below."
+title: "When Do Richer EHR Graphs Help? Representation, Architecture, and Task"
+type: software
+license: MIT
+authors:
+  - family-names: Hatim
+    given-names: Ismail
+    affiliation: "École polytechnique, France"
+  - family-names: Lachaud
+    given-names: Guillaume
+    affiliation: "École polytechnique, France"
+  - family-names: Diao
+    given-names: Yanlei
+    affiliation: "École polytechnique, France"
+  - family-names: Gallix
+    given-names: Benoît
+    affiliation: "American Hospital of Paris, France"
+preferred-citation:
+  type: conference-paper
+  title: "When Do Richer EHR Graphs Help? Representation, Architecture, and Task"
+  authors:
+    - family-names: Hatim
+      given-names: Ismail
+    - family-names: Lachaud
+      given-names: Guillaume
+    - family-names: Diao
+      given-names: Yanlei
+    - family-names: Gallix
+      given-names: Benoît
+  collection-title: "Machine Learning for Health (ML4H) 2026, Findings Track"
+  year: 2026
